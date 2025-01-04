@@ -1,9 +1,13 @@
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ArrowRight, BookOpen, Code, Database, Globe, PlayCircle } from "lucide-react";
+import { useState } from "react";
 
 const Courses = () => {
+  const [selectedCourse, setSelectedCourse] = useState<(typeof courses)[0] | null>(null);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1A1F2C] to-[#2C1A2F]">
       <Navigation />
@@ -39,28 +43,10 @@ const Courses = () => {
               <div className="space-y-2">
                 <p className="text-gray-300"><strong>Objectif :</strong> {course.objective}</p>
                 <p className="text-gray-300"><strong>Contenu :</strong> {course.content}</p>
-                
-                {/* Video Resources Section */}
-                <div className="mt-4 space-y-2">
-                  <h4 className="text-lg font-semibold text-purple-400">Ressources vidéo :</h4>
-                  <div className="space-y-2">
-                    {course.videos.map((video, vIndex) => (
-                      <a
-                        key={vIndex}
-                        href={video.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-300 hover:text-purple-400 transition-colors"
-                      >
-                        <PlayCircle className="h-4 w-4" />
-                        <span>{video.title}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
               </div>
               <Button 
                 className="mt-6 w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 group"
+                onClick={() => setSelectedCourse(course)}
               >
                 Commencer le cours
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -69,6 +55,36 @@ const Courses = () => {
           ))}
         </div>
       </div>
+
+      {/* Course Content Dialog */}
+      <Dialog open={!!selectedCourse} onOpenChange={() => setSelectedCourse(null)}>
+        <DialogContent className="bg-[#1A1F2C]/95 backdrop-blur-xl border-purple-500/20">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+              {selectedCourse?.title}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="mt-4 space-y-4">
+            <div className="space-y-2">
+              <h4 className="text-lg font-semibold text-purple-400">Ressources vidéo :</h4>
+              <div className="space-y-3">
+                {selectedCourse?.videos.map((video, index) => (
+                  <a
+                    key={index}
+                    href={video.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 p-3 rounded-lg bg-white/5 text-gray-300 hover:bg-white/10 hover:text-purple-400 transition-all group"
+                  >
+                    <PlayCircle className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                    <span>{video.title}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Resources Section */}
       <div className="relative py-16">
