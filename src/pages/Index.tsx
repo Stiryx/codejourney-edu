@@ -3,9 +3,16 @@ import { Card } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { ArrowRight, Code2, Users, Zap } from "lucide-react";
+import { useState } from "react";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const Index = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
+  if (isLoading) {
+    return <LoadingScreen onStart={() => setIsLoading(false)} />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1A1F2C] to-[#2C1A2F]">
