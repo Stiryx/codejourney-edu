@@ -57,6 +57,79 @@ const Blog = () => {
           </Card>
         </div>
 
+        {/* Section L'IA et le Développement de Code */}
+        <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-8">
+          L'IA et le Développement de Code : Une Révolution Technologique
+        </h1>
+
+        <div className="space-y-8 mb-16">
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Brain className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Principales Innovations</h2>
+              </div>
+              <h3 className="text-xl text-white mb-4">Génération Automatique de Code</h3>
+              <p className="text-gray-300 mb-4">
+                L'IA permet désormais de générer automatiquement du code source en utilisant :
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>Le machine learning</li>
+                <li>Le traitement du langage naturel (TLN)</li>
+                <li>Des modèles d'apprentissage avancés comme les Transformers</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Code2 className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Fonctionnalités Clés</h2>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>Complétion de code automatique</li>
+                <li>Suggestions de modifications</li>
+                <li>Détection proactive des bugs</li>
+                <li>Optimisation des performances</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Bot className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Outils Principaux</h2>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>GitHub Copilot</li>
+                <li>IBM Watsonx Code Assistant</li>
+                <li>GitHub Autopilot</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <User className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Bénéfices Concrets</h2>
+              </div>
+              <h3 className="text-xl text-white mb-4">Pour les Développeurs</h3>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>Réduction des tâches répétitives</li>
+                <li>Accélération du développement</li>
+                <li>Amélioration de la qualité du code</li>
+                <li>Détection précoce des vulnérabilités</li>
+              </ul>
+              <p className="text-gray-300 mt-4">
+                L'IA ne remplace pas les développeurs, mais les assiste en transformant leur approche de la programmation.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Section IA 2025 */}
         <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-8">
           L'IA en 2025 : Une Révolution Technologique Multidimensionnelle
@@ -177,10 +250,15 @@ const Blog = () => {
               <li><a href="https://www.free-work.com/fr/tech-it/blog/tags/code" className="hover:text-purple-400 transition-colors">[1] Free Work - Blogs Tech</a></li>
               <li><a href="https://talks.freelancerepublik.com/top-10-blogs-techniques-francais-developpeurs/" className="hover:text-purple-400 transition-colors">[2] Freelance Republik - Top 10 Blogs Techniques Français</a></li>
               <li><a href="https://blog.hubspot.fr/website/top-blogs-podcast-developpement-web" className="hover:text-purple-400 transition-colors">[3] HubSpot - Top Blogs et Podcasts Développement Web</a></li>
-              <li><a href="https://www.sciencepresse.qc.ca/actualite/2025/01/06/surveiller-2025-deficit-donnees-pour-ia" className="hover:text-purple-400 transition-colors">[1] Science Presse - Déficit de données pour l'IA</a></li>
-              <li><a href="https://www.grenier.qc.ca/actualites/46523/tendances-de-lia-en-2025-plus-performante-plus-complexe-plus-repandue" className="hover:text-purple-400 transition-colors">[2] Grenier - Tendances de l'IA en 2025</a></li>
-              <li><a href="https://www.innovant.fr/2025/01/18/comprendre-enfin-les-animaux-cette-avancee-en-ia-pourrait-decoder-leurs-conversations/" className="hover:text-purple-400 transition-colors">[3] Innovant - Comprendre les animaux grâce à l'IA</a></li>
-              <li><a href="https://www.unesco.org/fr/articles/lunesco-dedie-la-journee-internationale-de-leducation-2025-lintelligence-artificielle" className="hover:text-purple-400 transition-colors">[4] UNESCO - Journée internationale de l'éducation 2025</a></li>
+              <li><a href="https://about.gitlab.com/fr-fr/topics/devops/ai-code-generation-guide/" className="hover:text-purple-400 transition-colors">[4] GitLab - Guide de la génération de code par l'IA</a></li>
+              <li><a href="https://www.ibm.com/fr-fr/think/topics/ai-in-software-development" className="hover:text-purple-400 transition-colors">[5] IBM - L'IA dans le développement logiciel</a></li>
+              <li><a href="https://lindo.ai/blog/entn/fr/ai-driven_web_development" className="hover:text-purple-400 transition-colors">[6] Lindo - Développement Web Piloté par l'IA</a></li>
+              <li><a href="https://www.eurotechconseil.com/blog/developpement-logiciel-ia/" className="hover:text-purple-400 transition-colors">[7] Eurotech - Développement Logiciel et IA</a></li>
+              <li><a href="https://vmsoftwarehouse.fr/l-ia-dans-ianalyse-de-code-advantages-et-defis" className="hover:text-purple-400 transition-colors">[8] VM Software House - L'IA dans l'analyse de code</a></li>
+              <li><a href="https://www.cgi.com/france/fr-fr/blog/intelligence-artificielle/intelligence-artificielle-avenir-du-code" className="hover:text-purple-400 transition-colors">[9] CGI - L'IA : Avenir du Code</a></li>
+              <li><a href="https://www.alter-solutions.fr/blog/intelligence-artificielle-developpement-logiciel" className="hover:text-purple-400 transition-colors">[10] Alter Solutions - IA et Développement Logiciel</a></li>
+              <li><a href="https://www.gisnt.org/read-blog?id=60" className="hover:text-purple-400 transition-colors">[11] GISNT - Blog sur l'IA</a></li>
+              <li><a href="https://www.eurotechconseil.com/blog/ia-ml-developpement-logiciel/" className="hover:text-purple-400 transition-colors">[12] Eurotech - IA et ML dans le développement logiciel</a></li>
             </ol>
           </div>
         </section>
