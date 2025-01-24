@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
-import { Brain, Globe, ChartBar, Database, Shield, User, BookOpen, Robot, Network } from "lucide-react";
+import { Brain, Globe, ChartBar, Database, Shield, User, BookOpen, Bot, Network } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Blog = () => {
@@ -86,7 +86,7 @@ const Blog = () => {
                 </div>
                 <div>
                   <h3 className="text-xl text-white flex items-center gap-2">
-                    <Robot className="w-5 h-5 text-purple-400" />
+                    <Bot className="w-5 h-5 text-purple-400" />
                     Recherche Scientifique
                   </h3>
                   <ul className="list-disc list-inside mt-2 space-y-2 text-gray-300">
