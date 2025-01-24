@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Star, Sparkles } from "lucide-react";
+import { Star, Sparkles, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 
 const jokes = [
@@ -28,12 +28,12 @@ const LoadingScreen = ({ onStart }: { onStart: () => void }) => {
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      {/* Particules d'arrière-plan */}
+      {/* Background particles */}
       <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(100)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-white/10"
+            className="absolute rounded-full bg-white/10 animate-pulse-glow"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
@@ -46,9 +46,9 @@ const LoadingScreen = ({ onStart }: { onStart: () => void }) => {
         ))}
       </div>
 
-      {/* Étoiles animées */}
+      {/* Animated stars */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <Star
             key={i}
             className="absolute text-yellow-200 animate-twinkle"
@@ -63,39 +63,40 @@ const LoadingScreen = ({ onStart }: { onStart: () => void }) => {
         ))}
       </div>
 
-      {/* Cercles lumineux */}
+      {/* Glowing circles */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[100px] animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-pink-500/20 rounded-full blur-[80px] animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/20 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-pink-500/20 rounded-full blur-[100px] animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] bg-blue-500/20 rounded-full blur-[80px] animate-pulse delay-500" />
       </div>
 
-      {/* Logo et titre */}
-      <div className="text-center z-10 animate-fade-in relative">
-        <Sparkles className="absolute -top-12 left-1/2 -translate-x-1/2 text-yellow-200 w-8 h-8 animate-bounce" />
+      {/* Logo and title */}
+      <div className="text-center z-10 animate-slide-up-fade relative">
+        <Sparkles className="absolute -top-12 left-1/2 -translate-x-1/2 text-yellow-200 w-8 h-8 animate-bounce-subtle" />
         
-        <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 mb-8 animate-gradient">
+        <h1 className="text-6xl font-bold text-gradient mb-8 animate-gradient hover-scale">
           CodeMaster
         </h1>
         
-        {/* Blague aléatoire */}
-        <div className="relative">
-          <p className="text-gray-300 text-lg max-w-md mx-auto mb-12 h-16 transition-all duration-500 px-6">
+        {/* Random joke */}
+        <div className="relative glass-effect rounded-lg p-6 mb-12">
+          <p className="text-gray-300 text-lg max-w-md mx-auto h-16 transition-all duration-500">
             {currentJoke}
           </p>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shine" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shine rounded-lg" />
         </div>
 
-        {/* Bouton Démarrer */}
+        {/* Start button */}
         <Button
           onClick={() => {
             setIsVisible(false);
             setTimeout(onStart, 1000);
           }}
-          className="relative bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 animate-gradient group overflow-hidden"
+          className="relative gradient-border bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 hover:from-purple-600 hover:via-pink-600 hover:to-purple-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20 animate-gradient group overflow-hidden"
         >
           <span className="relative z-10 flex items-center gap-2">
             Démarrer
-            <Sparkles className="w-4 h-4 animate-pulse" />
+            <Zap className="w-4 h-4 animate-bounce-subtle" />
           </span>
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shine" />
         </Button>
