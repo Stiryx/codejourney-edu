@@ -120,7 +120,24 @@
 }
 
 .animate-shine {
-  animation: shine 2s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shine 3s linear infinite;
 }
 
 .animate-twinkle {
@@ -128,8 +145,11 @@
 }
 
 .animate-gradient {
-  background-size: 200% auto;
   animation: gradient 3s linear infinite;
+}
+
+.bg-300\% {
+  background-size: 300% 300%;
 }
 
 .animate-pulse-glow {
