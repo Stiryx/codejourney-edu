@@ -3,9 +3,13 @@ import Navigation from "@/components/Navigation";
 import BlogHeader from "@/components/blog/BlogHeader";
 import BlogCard from "@/components/blog/BlogCard";
 import PythonArticle from "@/components/blog/PythonArticle";
+import JavaScriptArticle from "@/components/blog/JavaScriptArticle";
+import ReactArticle from "@/components/blog/ReactArticle";
 
 const Blog = () => {
   const { content: pythonContent, citations: pythonCitations } = PythonArticle();
+  const { content: javascriptContent, citations: javascriptCitations } = JavaScriptArticle();
+  const { content: reactContent, citations: reactCitations } = ReactArticle();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1A1F2C] to-[#2C1A2F]">
@@ -25,7 +29,16 @@ const Blog = () => {
             content={pythonContent}
             citations={pythonCitations}
           />
-          {/* Autres articles de blog peuvent être ajoutés ici */}
+          <BlogCard 
+            title="JavaScript : Le Langage du Web"
+            content={javascriptContent}
+            citations={javascriptCitations}
+          />
+          <BlogCard 
+            title="React : La Révolution du Frontend"
+            content={reactContent}
+            citations={reactCitations}
+          />
         </div>
       </motion.div>
     </div>
