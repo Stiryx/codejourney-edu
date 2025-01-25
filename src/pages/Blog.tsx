@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
-import { Brain, Globe, ChartBar, Database, Shield, User, BookOpen, Bot, Network, Code2, Laptop } from "lucide-react";
+import { Brain, Globe, ChartBar, Database, Shield, User, BookOpen, Bot, Network, Code2, Laptop, Library, Terminal, Cpu, GitBranch } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Blog = () => {
@@ -262,6 +262,122 @@ const Blog = () => {
             </ol>
           </div>
         </section>
+      </motion.div>
+
+      {/* Section Python 2025 */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16"
+      >
+        <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-8">
+          Python : Le Langage de Programmation Roi en 2025
+        </h1>
+
+        <div className="space-y-8">
+          {/* Présentation Générale */}
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20 hover:border-purple-500/40 transition-colors">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Terminal className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Présentation Générale</h2>
+              </div>
+              <p className="text-gray-300">
+                <strong className="text-purple-400">Python</strong> émerge comme le langage de programmation le plus utilisé et polyvalent, 
+                offrant des capacités exceptionnelles dans plusieurs domaines technologiques.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Caractéristiques Principales */}
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20 hover:border-purple-500/40 transition-colors">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <GitBranch className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Caractéristiques Principales</h2>
+              </div>
+              <h3 className="text-xl text-white mb-4">Points Forts</h3>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>Syntaxe simple et lisible</li>
+                <li>Polyvalence exceptionnelle</li>
+                <li>Performance dans l'intelligence artificielle</li>
+                <li>Communauté de développeurs active</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Domaines d'Application */}
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20 hover:border-purple-500/40 transition-colors">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Cpu className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Domaines d'Application</h2>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>Intelligence artificielle</li>
+                <li>Développement web</li>
+                <li>Analyse de données</li>
+                <li>Automatisation de tâches</li>
+                <li>Création d'algorithmes</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Avantages Techniques */}
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20 hover:border-purple-500/40 transition-colors">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Library className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Avantages Techniques</h2>
+              </div>
+              <h3 className="text-xl text-white mb-4">Bibliothèques Puissantes</h3>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>Facilite le développement rapide</li>
+                <li>Support pour Machine Learning</li>
+                <li>Intégration avec de nombreuses API</li>
+                <li>Web scraping efficace</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Contexte Historique */}
+          <Card className="bg-white/5 backdrop-blur-lg border-purple-500/20 hover:border-purple-500/40 transition-colors">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <BookOpen className="w-6 h-6 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-white">Contexte Historique</h2>
+              </div>
+              <p className="text-gray-300 mb-4">
+                Lancé en 1991, Python a connu une croissance exponentielle ces dernières années, notamment grâce à ses capacités dans :
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-300">
+                <li>L'intelligence artificielle</li>
+                <li>La science des données</li>
+                <li>Le développement logiciel</li>
+              </ul>
+              <p className="text-gray-300 mt-4">
+                <strong className="text-purple-400">Particularité</strong> : Premier dans l'index TIOBE, Python symbolise la modernité et la flexibilité en programmation.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Citations */}
+        <div className="mt-8 text-sm text-gray-400">
+          <h3 className="text-lg font-semibold mb-2">Citations:</h3>
+          <ol className="list-decimal list-inside space-y-1">
+            <li><a href="https://fr.pixartprinting.ch/blog/langages-de-programmation/" className="hover:text-purple-400 transition-colors">[1] Pixart Printing - Langages de Programmation</a></li>
+            <li><a href="https://www.qiminfo.ch/developpement-logiciel-langage/" className="hover:text-purple-400 transition-colors">[2] Qiminfo - Développement Logiciel Langage</a></li>
+            <li><a href="https://blog.hubspot.fr/website/langage-de-programmation" className="hover:text-purple-400 transition-colors">[3] HubSpot - Langage de Programmation</a></li>
+            <li><a href="https://www.fed-group.ca/fed-it/conseils/langages-informatiques" className="hover:text-purple-400 transition-colors">[4] Fed Group - Langages Informatiques</a></li>
+            <li><a href="https://www.jedha.co/blog/10-principaux-langages-programmation" className="hover:text-purple-400 transition-colors">[5] Jedha - 10 Principaux Langages de Programmation</a></li>
+            <li><a href="https://www.codeur.com/blog/top-langages-de-programmation/" className="hover:text-purple-400 transition-colors">[6] Codeur - Top Langages de Programmation</a></li>
+            <li><a href="https://blog.lesjeudis.com/langage-de-programmation-apprendre" className="hover:text-purple-400 transition-colors">[7] Les Jeudis - Langage de Programmation à Apprendre</a></li>
+            <li><a href="https://www.ib-formation.fr/home/mag/developpement-informatique/langages/levolution-des-langages-de-programmation-populaires" className="hover:text-purple-400 transition-colors">[8] IB Formation - Évolution des Langages de Programmation</a></li>
+            <li><a href="https://www.grandeecolenumerique.fr/actualites/quel-langage-de-programmation-choisir" className="hover:text-purple-400 transition-colors">[9] Grande École Numérique - Quel Langage de Programmation Choisir</a></li>
+            <li><a href="https://upway.io/blog/les-langages-de-programmation-qui-ont-le-vent-en-poupe/" className="hover:text-purple-400 transition-colors">[10] Upway - Langages de Programmation en Vogue</a></li>
+          </ol>
+        </div>
       </motion.div>
     </div>
   );
