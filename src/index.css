@@ -49,6 +49,17 @@
   }
 }
 
+@keyframes shooting-star {
+  0% {
+    transform: translateX(-100%) translateY(0) rotate(35deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) translateY(100%) rotate(35deg);
+    opacity: 0;
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
