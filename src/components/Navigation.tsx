@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { GraduationCap, Home, Info, BookOpen } from "lucide-react";
+import { GraduationCap, Home, Info, BookOpen, Code2 } from "lucide-react";
 
 const Navigation = () => {
   const location = useLocation();
@@ -13,6 +13,7 @@ const Navigation = () => {
     { path: "/", label: "Accueil", icon: <Home className="w-5 h-5" /> },
     { path: "/courses", label: "Cours", icon: <GraduationCap className="w-5 h-5" /> },
     { path: "/blog", label: "Blog", icon: <BookOpen className="w-5 h-5" /> },
+    { path: "/assistant", label: "Assistant", icon: <Code2 className="w-5 h-5" /> },
     { path: "/about", label: "À propos", icon: <Info className="w-5 h-5" /> }
   ];
 

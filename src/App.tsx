@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Courses from "./pages/Courses";
 import Blog from "./pages/Blog";
+import AssistantCode from "./pages/AssistantCode";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/assistant" element={<AssistantCode />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
