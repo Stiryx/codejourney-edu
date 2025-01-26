@@ -47,7 +47,9 @@ const AssistantCode = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Erreur lors de la communication avec l\'API Mistral');
+        const errorData = await response.json();
+        console.error('Erreur API:', errorData);
+        throw new Error(`Erreur API Mistral: ${errorData.message || 'Erreur inconnue'}`);
       }
 
       const data = await response.json();
@@ -61,7 +63,7 @@ const AssistantCode = () => {
       console.error('Erreur:', error);
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue lors de l'analyse du code",
+        description: error instanceof Error ? error.message : "Une erreur est survenue lors de l'analyse du code",
         variant: "destructive",
       });
     } finally {
