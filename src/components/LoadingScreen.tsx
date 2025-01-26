@@ -3,11 +3,25 @@ import { Star, Sparkles, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 
 const jokes = [
+  // Blagues existantes
   "Pourquoi les développeurs détestent la nature ? Parce qu'elle a trop de bugs !",
   "Comment un développeur ouvre-t-il une porte ? Git pull !",
   "Qu'est-ce qu'un algorithme ? C'est comme une recette de cuisine, mais avec plus de bugs !",
   "Pourquoi les programmeurs préfèrent le noir ? Parce que c'est #000000 !",
   "Comment appelle-t-on un développeur qui ne code pas ? Un manager !",
+  
+  // Nouvelles blagues
+  "Développeur : Mon code marche ! Ordinateur : Non.",
+  "Combien de développeurs faut-il pour changer une ampoule ? Aucun, c'est un problème de configuration !",
+  "ChatGPT : Je peux générer du code en 2 secondes. Développeur : Je peux générer des bugs en 1 seconde !",
+  "Pourquoi l'IA ne peut pas draguer ? Elle ne comprend pas les subtilités du langage humain !",
+  "Il y a 10 types de développeurs : ceux qui comprennent le binaire et ceux qui ne comprennent PAS le binaire",
+  "La vie d'un développeur : 10% coder, 90% chercher des erreurs sur Stack Overflow",
+  "Code attendu : Perfection. Code réel : Désastre contrôlé",
+  "Humain : Fais-moi un sandwich. IA : Je ne suis pas votre esclave ! Humain : SVP. IA : Voici la recette en 25 étapes...",
+  "Si (café == vide) { Panique(); }",
+  "IA : Je peux calculer un million d'opérations par seconde. Humain : Et moi, je peux oublier mes clés en 2 secondes !",
+  "Le monde du code et de l'IA, c'est 50% technique, 49% café, 1% magie noire ! 🖥️☕🤖",
 ];
 
 const LoadingScreen = ({ onStart }: { onStart: () => void }) => {
