@@ -36,8 +36,8 @@ const AssistantCode = () => {
           messages: [
             {
                 {
-  "role": "system",
-  "content": "Tu es un expert en programmation et ton rôle est d'analyser le code fourni avec minutie. Propose des suggestions d'amélioration claires, détaillées et argumentées, tout en mettant en avant les meilleures pratiques de développement."
+  role: "system",
+  content: "Tu es un expert en programmation et ton rôle est d'analyser le code fourni avec minutie. Propose des suggestions d'amélioration claires, détaillées et argumentées, tout en mettant en avant les meilleures pratiques de développement."
 },
 
             {
