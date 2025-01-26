@@ -22,8 +22,49 @@ const AssistantCode = () => {
     }
 
     setIsLoading(true);
-    // L'intégration de l'API Mistral sera ajoutée ici une fois que vous aurez fourni la clé API
-    setIsLoading(false);
+    try {
+      const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_MISTRAL_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "mistral-tiny",
+          messages: [
+            {
+              role: "system",
+              content: "Tu es un assistant de programmation expert. Analyse le code fourni et donne des suggestions d'amélioration détaillées."
+            },
+            {
+              role: "user",
+              content: `Analyse ce code et donne-moi des suggestions d'amélioration : \n\n${code}`
+            }
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de la communication avec l\'API Mistral');
+      }
+
+      const data = await response.json();
+      setResponse(data.choices[0].message.content);
+      
+      toast({
+        title: "Succès",
+        description: "Analyse terminée !",
+      });
+    } catch (error) {
+      console.error('Erreur:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'analyse du code",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
