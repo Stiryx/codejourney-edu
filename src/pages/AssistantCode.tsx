@@ -4,35 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
-import { Code2, Send, Loader2, Key } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Code2, Send, Loader2 } from "lucide-react";
 
-const MISTRAL_API_KEY_STORAGE = "mistral_api_key";
+const MISTRAL_API_KEY = "C6lSQZb93QHLenOIwOJwCbXLkz8zGOHl";
 
 const AssistantCode = () => {
   const [code, setCode] = useState("");
   const [response, setResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [apiKey, setApiKey] = useState(localStorage.getItem(MISTRAL_API_KEY_STORAGE) || "");
-  const [showApiKeyInput, setShowApiKeyInput] = useState(!localStorage.getItem(MISTRAL_API_KEY_STORAGE));
-
-  const saveApiKey = () => {
-    if (!apiKey.trim()) {
-      toast({
-        title: "Erreur",
-        description: "La clé API ne peut pas être vide",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    localStorage.setItem(MISTRAL_API_KEY_STORAGE, apiKey);
-    setShowApiKeyInput(false);
-    toast({
-      title: "Succès",
-      description: "Clé API sauvegardée !",
-    });
-  };
 
   const handleSubmit = async () => {
     if (!code.trim()) {
@@ -44,22 +23,13 @@ const AssistantCode = () => {
       return;
     }
 
-    if (!apiKey) {
-      toast({
-        title: "Erreur",
-        description: "Veuillez d'abord configurer votre clé API Mistral",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsLoading(true);
     try {
       const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
+          'Authorization': `Bearer ${MISTRAL_API_KEY}`
         },
         body: JSON.stringify({
           model: "mistral-tiny",
@@ -112,80 +82,52 @@ const AssistantCode = () => {
             </h1>
           </div>
 
-          {showApiKeyInput ? (
-            <Card className="p-6 mb-6 bg-white/5 backdrop-blur-lg border-purple-500/20">
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
-                    Clé API Mistral
-                  </label>
-                  <div className="flex gap-2">
-                    <Input
-                      value={apiKey}
-                      onChange={(e) => setApiKey(e.target.value)}
-                      placeholder="Entrez votre clé API Mistral..."
-                      className="bg-black/20 border-purple-500/30 text-gray-100"
-                      type="password"
-                    />
-                    <Button
-                      onClick={saveApiKey}
-                      className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                    >
-                      <Key className="w-4 h-4" />
-                      Sauvegarder
-                    </Button>
-                  </div>
-                </div>
+          <Card className="p-6 bg-white/5 backdrop-blur-lg border-purple-500/20">
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-200 mb-2">
+                  Votre Code
+                </label>
+                <Textarea
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  placeholder="Collez votre code ici pour obtenir de l'aide..."
+                  className="min-h-[200px] bg-black/20 border-purple-500/30 text-gray-100"
+                />
               </div>
-            </Card>
-          ) : (
-            <Card className="p-6 bg-white/5 backdrop-blur-lg border-purple-500/20">
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-200 mb-2">
-                    Votre Code
-                  </label>
-                  <Textarea
-                    value={code}
-                    onChange={(e) => setCode(e.target.value)}
-                    placeholder="Collez votre code ici pour obtenir de l'aide..."
-                    className="min-h-[200px] bg-black/20 border-purple-500/30 text-gray-100"
-                  />
-                </div>
 
-                <Button
-                  onClick={handleSubmit}
-                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Analyse en cours...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="mr-2 h-4 w-4" />
-                      Analyser le code
-                    </>
-                  )}
-                </Button>
-
-                {response && (
-                  <div className="mt-6">
-                    <h2 className="text-xl font-semibold text-gray-200 mb-3">
-                      Suggestions
-                    </h2>
-                    <Card className="p-4 bg-black/20 border-purple-500/30">
-                      <pre className="whitespace-pre-wrap text-gray-100">
-                        {response}
-                      </pre>
-                    </Card>
-                  </div>
+              <Button
+                onClick={handleSubmit}
+                className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Analyse en cours...
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2 h-4 w-4" />
+                    Analyser le code
+                  </>
                 )}
-              </div>
-            </Card>
-          )}
+              </Button>
+
+              {response && (
+                <div className="mt-6">
+                  <h2 className="text-xl font-semibold text-gray-200 mb-3">
+                    Suggestions
+                  </h2>
+                  <Card className="p-4 bg-black/20 border-purple-500/30">
+                    <pre className="whitespace-pre-wrap text-gray-100">
+                      {response}
+                    </pre>
+                  </Card>
+                </div>
+              )}
+            </div>
+          </Card>
         </div>
       </main>
     </div>
