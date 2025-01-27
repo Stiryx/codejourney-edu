@@ -58,7 +58,7 @@ const Navigation = () => {
           >
             <Link to="/" className="flex-shrink-0 flex items-center">
               <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-gradient bg-300% hover:animate-shine">
-                CodeMaster
+                Assistant IA
               </span>
             </Link>
           </motion.div>
