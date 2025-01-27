@@ -8,28 +8,22 @@ Avant de commencer, assurez-vous d'avoir installé :
 
 ## Installation
 
-1. Clonez le dépôt :
-```bash
-git clone [URL_DU_REPO]
-cd [NOM_DU_DOSSIER]
-```
-
-2. Installez les dépendances :
+1. Installez les dépendances :
 ```bash
 npm install
 ```
 
-3. Créez un fichier `.env` à la racine du projet et ajoutez votre clé API Mistral :
+2. Créez un fichier `.env` à la racine du projet et ajoutez votre clé API Mistral :
 ```
 VITE_MISTRAL_API_KEY=votre_clé_api_ici
 ```
 
-4. Démarrez le serveur de développement :
+3. Démarrez le serveur de développement :
 ```bash
 npm run dev
 ```
 
-5. Ouvrez votre navigateur et accédez à :
+4. Ouvrez votre navigateur et accédez à :
 ```
 http://localhost:8080
 ```
