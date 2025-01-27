@@ -7,8 +7,7 @@ import { toast } from "@/components/ui/use-toast";
 import { Code2, Send, Loader2, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Utilisation de la variable d'environnement
-const MISTRAL_API_KEY = import.meta.env.VITE_MISTRAL_API_KEY;
+const MISTRAL_API_KEY = "wf4DMxP78Z5x7g3wu1i3kUJIfMNXIP2p";
 
 const AssistantCode = () => {
   const [code, setCode] = useState("");
