@@ -1,69 +1,59 @@
-# Welcome to your Lovable project
+# Assistant IA - Guide d'installation
 
-## Project info
+## Prérequis
 
-**URL**: https://lovable.dev/projects/fdf30f75-65a4-42a6-970f-5b8973322725
+Avant de commencer, assurez-vous d'avoir installé :
+- [Node.js](https://nodejs.org/) (version 16 ou supérieure)
+- [Git](https://git-scm.com/downloads)
 
-## How can I edit this code?
+## Installation
 
-There are several ways of editing your application.
+1. Clonez le dépôt :
+```bash
+git clone [URL_DU_REPO]
+cd [NOM_DU_DOSSIER]
+```
 
-**Use Lovable**
+2. Installez les dépendances :
+```bash
+npm install
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fdf30f75-65a4-42a6-970f-5b8973322725) and start prompting.
+3. Créez un fichier `.env` à la racine du projet et ajoutez votre clé API Mistral :
+```
+VITE_MISTRAL_API_KEY=votre_clé_api_ici
+```
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Démarrez le serveur de développement :
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+5. Ouvrez votre navigateur et accédez à :
+```
+http://localhost:8080
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Structure du projet
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
+Le projet utilise :
 - Vite
-- TypeScript
 - React
-- shadcn-ui
+- TypeScript
 - Tailwind CSS
+- shadcn/ui pour les composants
+- Framer Motion pour les animations
 
-## How can I deploy this project?
+## Scripts disponibles
 
-Simply open [Lovable](https://lovable.dev/projects/fdf30f75-65a4-42a6-970f-5b8973322725) and click on Share -> Publish.
+- `npm run dev` : Lance le serveur de développement
+- `npm run build` : Crée une version de production
+- `npm run preview` : Prévisualise la version de production
 
-## I want to use a custom domain - is that possible?
+## Aide et support
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Si vous rencontrez des problèmes :
+1. Vérifiez que Node.js est bien installé : `node --version`
+2. Vérifiez que toutes les dépendances sont installées : `npm install`
+3. Vérifiez que le fichier `.env` est bien configuré
+4. Consultez les logs dans la console du navigateur
