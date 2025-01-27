@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
-import { Code2, Send, Loader2 } from "lucide-react";
+import { Code2, Send, Loader2, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 const MISTRAL_API_KEY = "wf4DMxP78Z5x7g3wu1i3kUJIfMNXIP2p";
 
@@ -74,66 +75,106 @@ const AssistantCode = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1A1F2C] to-[#2C1A2F]">
+    <div className="min-h-screen bg-[#1A1F2C] bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+      
+      <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10 animate-pulse-slow" />
+      
       <Navigation />
       
-      <main className="container mx-auto px-4 pt-24 pb-12">
+      <motion.main 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="container mx-auto px-4 pt-24 pb-12 relative z-10"
+      >
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <Code2 className="w-8 h-8 text-purple-400" />
-            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+          <motion.div 
+            className="flex items-center gap-3 mb-8"
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="relative">
+              <Code2 className="w-10 h-10 text-purple-400" />
+              <Sparkles className="w-4 h-4 text-pink-400 absolute -top-1 -right-1 animate-pulse" />
+            </div>
+            <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 animate-gradient bg-300%">
               Assistant Code
             </h1>
-          </div>
+          </motion.div>
 
-          <Card className="p-6 bg-white/5 backdrop-blur-lg border-purple-500/20">
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-200 mb-2">
-                  Votre Code
-                </label>
-                <Textarea
-                  value={code}
-                  onChange={(e) => setCode(e.target.value)}
-                  placeholder="Collez votre code ici pour obtenir de l'aide..."
-                  className="min-h-[200px] bg-black/20 border-purple-500/30 text-gray-100"
-                />
-              </div>
-
-              <Button
-                onClick={handleSubmit}
-                className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Analyse en cours...
-                  </>
-                ) : (
-                  <>
-                    <Send className="mr-2 h-4 w-4" />
-                    Analyser le code
-                  </>
-                )}
-              </Button>
-
-              {response && (
-                <div className="mt-6">
-                  <h2 className="text-xl font-semibold text-gray-200 mb-3">
-                    Suggestions
-                  </h2>
-                  <Card className="p-4 bg-black/20 border-purple-500/30">
-                    <pre className="whitespace-pre-wrap text-gray-100">
-                      {response}
-                    </pre>
-                  </Card>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <Card className="p-8 bg-black/40 backdrop-blur-xl border-purple-500/20 shadow-xl shadow-purple-500/5">
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-base font-medium text-gray-200 mb-3 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+                    Votre Code
+                  </label>
+                  <Textarea
+                    value={code}
+                    onChange={(e) => setCode(e.target.value)}
+                    placeholder="Collez votre code ici pour obtenir de l'aide..."
+                    className="min-h-[200px] bg-black/30 border-purple-500/30 text-gray-100 placeholder:text-gray-500 focus:border-purple-500/50 transition-all duration-300"
+                  />
                 </div>
-              )}
-            </div>
-          </Card>
+
+                <Button
+                  onClick={handleSubmit}
+                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/20"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <motion.div 
+                      className="flex items-center justify-center"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                    >
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <span className="bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+                        Analyse en cours...
+                      </span>
+                    </motion.div>
+                  ) : (
+                    <motion.div 
+                      className="flex items-center justify-center"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Send className="mr-2 h-4 w-4" />
+                      <span className="bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+                        Analyser le code
+                      </span>
+                    </motion.div>
+                  )}
+                </Button>
+
+                {response && (
+                  <motion.div 
+                    className="mt-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h2 className="text-xl font-semibold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-4">
+                      Suggestions
+                    </h2>
+                    <Card className="p-6 bg-black/30 border-purple-500/30 shadow-inner">
+                      <pre className="whitespace-pre-wrap text-gray-100 font-mono text-sm">
+                        {response}
+                      </pre>
+                    </Card>
+                  </motion.div>
+                )}
+              </div>
+            </Card>
+          </motion.div>
         </div>
-      </main>
+      </motion.main>
     </div>
   );
 };
